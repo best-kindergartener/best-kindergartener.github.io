@@ -76,10 +76,10 @@
                 
                 pointer-events: none;
                 container-type: inline-size;
-                overflow-x: visible    ;
+                overflow-x: auto    ;
                 /* overflow-y: hidden; */
                 overscroll-behavior: contain;
-                inline-size: 45cqi;
+                inline-size: 100cqi;
                 height: 70svh;
                 display: grid;
                 place-items: center;
@@ -89,6 +89,12 @@
                 --gap-size: 5cqi;
                 gap: var(--gap-size);
                 scroll-behavior: smooth;
+                & :first-child:is(section)::before {
+                    content: " ";
+                    inline-size: 50cqi;
+                    display: inline;
+                    height: 1px;
+                }
             }
             section {
                 border: 5px solid black;
@@ -96,12 +102,13 @@
                 border-image: url("le.alphamethyl.barr0w.net/~elysia/storage/images/stampborder.png") 8 / 30px round;
                 --hue: calc((60 / var(--total_sections)) * var(--index));
                 background-color: hsl(var(--hue) 100% 55%);
-                --tile-size: 100ch;
+                --tile-size: 45ch;
                 overscroll-behavior: contain;
                 scroll-snap-align: center;
                 inline-size: min(var(--tile-size),90cqi);
                 position: relative;
                 aspect-ratio: 1;
+                
             }
             footer {
                 grid-row: 2;
