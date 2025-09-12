@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>girl</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial">
+        <style>
+            /* animations */
+            @keyframes bounce-up {
+                from {translate: 0em 0em;} 
+                to {translate: 0em -1em;}
+            }
+            @keyframes nodnod {
+                from {rotate: -10deg;}
+                to {
+                    rotate: 10deg;
+                }
+            }
+            .nodnod {
+                animation: nodnod ease-in-out infinite alternate;
+                animation-play-state: running;
+            }
+
+            /* boilerplate */
+            html {
+                scroll-behavior: smooth;
+                background: var(--htmlbg);
+
+            }
+            :root {
+                --htmlbg: #fce9ec;
+                --htmlbgI: rgb(91, 22, 22);
+                @media (prefers-color-scheme: dark) {
+                    --htmlbg: rgb(91, 22, 22);
+                    --htmlbgI:#fce9ec;
+                }
+            }
+
+            body {
+                display: grid;
+                grid-template-columns: 0.27fr 1fr 0.27fr;
+                max-width: 100svw;
+                place-items: center;
+                overflow-x: hidden;
+                header:is(.little), main {
+                    grid-column: 2;
+                }
+            }
+            header:is(.little) {
+                overflow: hidden;
+            }
+            header:is(.little) > h1{
+                display: flex;
+                
+                > * {
+
+                    display: block;
+                    --total_letters: 9;
+                    animation: bounce-up ease-in-out alternate infinite 1s;
+                    animation-delay: calc( ( (var(--index) * .3s) ) );
+    
+                    --hue: calc((360 / var(--total_letters)) * var(--index));
+                    color: hsl(var(--hue) 100% 55%);
+                    animation-play-state: running;
+                    transition: animation-play-state 0.7s ease;
+                }
+                &:hover {
+                    span {
+
+                        animation-play-state: paused !important;
+                    }
+                    }
+            }
+            main {
+                scroll-snap-type: x mandatory;
+                
+                pointer-events: none;
+                container-type: inline-size;
+                overflow-x: visible    ;
+                /* overflow-y: hidden; */
+                overscroll-behavior: contain;
+                inline-size: 45cqi;
+                height: 70svh;
+                display: grid;
+                place-items: center;
+                scroll-padding: 10%;
+                grid-auto-flow: column;
+                scrollbar-width: none;
+                --gap-size: 5cqi;
+                gap: var(--gap-size);
+                scroll-behavior: smooth;
+            }
+            section {
+                border: 5px solid black;
+                --total_sections: 3;
+                border-image: url("le.alphamethyl.barr0w.net/~elysia/storage/images/stampborder.png") 8 / 30px round;
+                --hue: calc((60 / var(--total_sections)) * var(--index));
+                background-color: hsl(var(--hue) 100% 55%);
+                --tile-size: 100ch;
+                overscroll-behavior: contain;
+                scroll-snap-align: center;
+                inline-size: min(var(--tile-size),90cqi);
+                position: relative;
+                aspect-ratio: 1;
+            }
+            footer {
+                grid-row: 2;
+                background: var;
+                background-color: var(--htmlbgI);
+                grid-column: 2 / -1;
+            }
+
+            /* content */
+
+        </style>
+    </head>
+    <body>
+        <header class="little">
+            <h1>
+                <span style="--index:0;">
+                p
+            </span>
+            <span style="--index:1;">
+                l
+            </span>
+            <span style="--index:2;">
+                a
+            </span>
+            <span style="--index:3;">y</span>
+            <span style="--index:4;">h</span>
+            <span style="--index:5;">o</span>
+            <span style="--index:6;">u</span>
+            <span style="--index:7;">s</span>
+            <span style="--index:8;">e</span>
+            </h1>
+        </header>
+        <main>
+            <section aria-labelledby="intro" style="--index:1">
+                <h2 id="intro">hey im kiddo</h2>
+
+            </section>
+            <section aria-labelledby="likes" style="--index:2">
+                <h2 id="likes">what i like !</h2>
+
+            </section>
+            <section aria-labelledby="toys" style="--index:3">
+                <h2 id="toys">my favourite toys</h2>
+
+            </section>
+            
+        </main>
+        <footer>
+                made by <a href="https://elysia.boutique">elysia</a>
+            </footer>
+    </body>
+</html>
