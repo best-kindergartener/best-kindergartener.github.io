@@ -48,6 +48,7 @@
             }
             header:is(.little) {
                 overflow: hidden;
+                margin-top: 1em;
             }
             header:is(.little) > h1{
                 display: flex;
@@ -77,10 +78,10 @@
                 pointer-events: none;
                 container-type: inline-size;
                 overflow-x: auto    ;
-                /* overflow-y: hidden; */
+                overflow-y: visible;
                 overscroll-behavior: contain;
                 inline-size: 100cqi;
-                height: 70svh;
+                height: 50em;
                 display: grid;
                 place-items: center;
                 scroll-padding: 10%;
@@ -89,17 +90,21 @@
                 --gap-size: 5cqi;
                 gap: var(--gap-size);
                 scroll-behavior: smooth;
-                & :first-child:is(section)::before {
-                    content: " ";
+                
+                    &::before, &::after {
+                        content: " ";
                     inline-size: 50cqi;
                     display: inline;
                     height: 1px;
-                }
+                    }
+                    
+                
             }
             section {
                 border: 5px solid black;
                 --total_sections: 3;
-                border-image: url("le.alphamethyl.barr0w.net/~elysia/storage/images/stampborder.png") 8 / 30px round;
+                border-image: url("stampborder.png") 8 / 30px round;
+                image-rendering: pixelated;
                 --hue: calc((60 / var(--total_sections)) * var(--index));
                 background-color: hsl(var(--hue) 100% 55%);
                 --tile-size: 45ch;
@@ -108,13 +113,15 @@
                 inline-size: min(var(--tile-size),90cqi);
                 position: relative;
                 aspect-ratio: 1;
-                
+                padding: 1em;
+                translate: 0px calc( var(--index) * 5 * 1em );
             }
             footer {
-                grid-row: 2;
+                grid-row: 3;
                 background: var;
                 background-color: var(--htmlbgI);
                 grid-column: 2 / -1;
+                border: 3px brown dotted;
             }
 
             /* content */
@@ -142,22 +149,74 @@
             </h1>
         </header>
         <main>
-            <section aria-labelledby="intro" style="--index:1">
+            <section aria-labelledby="intro" style="--index:0">
                 <h2 id="intro">hey im kiddo</h2>
-
+                <p>
+                    ely is webmistress doll.
+                </p>
+                <p>
+                    j'ai 6 ans
+                </p>
+                <p>
+                    <a href="https://www.youtube.com/clip/Ugkxkm8SrVXqQpw3BolauHLdF3yc3KoaUZLp?feature=shared">
+                        lemon !
+                    </a>
+                </p>
+                <a href="#likes">see what i like</a>
             </section>
-            <section aria-labelledby="likes" style="--index:2">
+            <section aria-labelledby="likes" style="--index:1">
                 <h2 id="likes">what i like !</h2>
+                <ul>
+                    <li>dolls</li>
+                    <li>playing</li>
+                    <li>css</li>
+                    <li>friends</li>
 
+                </ul>
+                i play with <a href="#toys">these toys</a>
             </section>
-            <section aria-labelledby="toys" style="--index:3">
+            <section aria-labelledby="toys" style="--index:2">
                 <h2 id="toys">my favourite toys</h2>
-
+                <ul>
+                    <li>kererū</li>
+                    <li>lego</li>
+                    <li>dress up</li>
+                    <li>floor time</li>
+                </ul>
             </section>
             
         </main>
         <footer>
-                made by <a href="https://elysia.boutique">elysia</a>
+                made by <a href="https://elysia.boutique">elysia</a> <br>
+               <span style="text-align: center; display: block;">
+                 &lt; - &gt;
+               </span>
             </footer>
+            <script>
+                var waitUntil = 0;
+                var mousehz = 60;
+                var gallery_cont = document.querySelector("main");
+                console.log(gallery_cont);
+                function isOnScreen () {
+    if (Date.now() >= waitUntil) {
+        let i = 0;
+       
+        for (var child of gallery_cont.children) {
+            let rect = child.getBoundingClientRect();
+            let viewportX = rect.x >= 0 && rect.right <= window.innerWidth;
+            console.log(viewportX);
+            if(child !== -1 && viewportX) {
+                
+                return scrollI = i;
+            }
+			waitUntil = Date.now() + 1000 / mousehz;
+            i++;
+		}
+
+        
+    }
+}
+            </script>
     </body>
+    
 </html>
