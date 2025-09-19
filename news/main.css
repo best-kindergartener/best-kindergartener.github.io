@@ -1,0 +1,47 @@
+/* animations */
+            @keyframes bounce-up {
+                from {translate: 0em 0em;} 
+                to {translate: 0em -1em;}
+            }
+            @keyframes nodnod {
+                from {rotate: -10deg;}
+                to {
+                    rotate: 10deg;
+                }
+            }
+            .nodnod {
+                animation: nodnod ease-in-out infinite alternate;
+                animation-play-state: running;
+            }
+
+
+
+
+
+
+header:is(.little) {
+                overflow: hidden;
+                margin-top: 1em;
+            }
+            header:is(.little) > h1{
+                display: flex;
+                
+                > * {
+
+                    display: block;
+                    --total_letters: 9;
+                    animation: bounce-up ease-in-out alternate infinite 1s;
+                    animation-delay: calc( ( (var(--index) * .3s) ) );
+    
+                    --hue: calc((360 / var(--total_letters)) * var(--index));
+                    color: hsl(var(--hue) 100% 55%);
+                    animation-play-state: running;
+                    transition: animation-play-state 0.7s ease;
+                }
+                &:hover {
+                    span {
+
+                        animation-play-state: paused !important;
+                    }
+                    }
+            }

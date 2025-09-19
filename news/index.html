@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>girl</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header class="little">
+            <h1>
+                <span style="--index:0;">
+                p
+            </span>
+            <span style="--index:1;">
+                l
+            </span>
+            <span style="--index:2;">
+                a
+            </span>
+            <span style="--index:3;">y</span>
+            <span style="--index:4;">h</span>
+            <span style="--index:5;">o</span>
+            <span style="--index:6;">u</span>
+            <span style="--index:7;">s</span>
+            <span style="--index:8;">e</span>
+            </h1>
+        </header>
+        <main>
+            <section aria-labelledby="intro" style="--index:0">
+                <h2 id="intro">hey im kiddo</h2>
+                <p>
+                    ely is webmistress doll.
+                </p>
+                <p>
+                    j'ai 6 ans
+                </p>
+                <p>
+                    <a href="https://www.youtube.com/clip/Ugkxkm8SrVXqQpw3BolauHLdF3yc3KoaUZLp?feature=shared">
+                        lemon !
+                    </a>
+                </p>
+                <a href="#likes">see what i like</a>
+            </section>
+            <section aria-labelledby="likes" style="--index:1">
+                <h2 id="likes">what i like !</h2>
+                <ul>
+                    <li>dolls</li>
+                    <li>playing</li>
+                    <li>css</li>
+                    <li>friends</li>
+
+                </ul>
+                i play with <a href="#toys">these toys</a>
+            </section>
+            <section aria-labelledby="toys" style="--index:2">
+                <h2 id="toys">my favourite toys</h2>
+                <ul>
+                    <li>kererū</li>
+                    <li>lego</li>
+                    <li>dress up</li>
+                    <li>floor time</li>
+                </ul>
+            </section>
+            
+        </main>
+        <footer>
+                made by <a href="https://elysia.boutique">elysia</a> <br>
+               <span style="text-align: center; display: block;">
+                 &lt; - &gt;
+               </span>
+            </footer>
+            <script>
+                var waitUntil = 0;
+                var mousehz = 60;
+                var gallery_cont = document.querySelector("main");
+                console.log(gallery_cont);
+                function isOnScreen () {
+    if (Date.now() >= waitUntil) {
+        let i = 0;
+       
+        for (var child of gallery_cont.children) {
+            let rect = child.getBoundingClientRect();
+            let viewportX = rect.x >= 0 && rect.right <= window.innerWidth;
+            console.log(viewportX);
+            if(child !== -1 && viewportX) {
+                
+                return scrollI = i;
+            }
+			waitUntil = Date.now() + 1000 / mousehz;
+            i++;
+		}
+
+        
+    }
+}
+            </script>
+    </body>
+    
+</html>
