@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -8,63 +8,18 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
     <style>
-        
-        :root {
-            color-scheme: light dark;
-            --fgsize: clamp( 14px, 2.5vw, 25px );
-            --fgcol: rgb(112, 22, 22);
-            --bgcol: rgb(252, 242, 195);
-            @media (prefers-color-scheme: dark) {
-                --fgcol: rgb(252, 242, 195);
-                --bgcol: rgb(112, 22, 22);
-            }
-        }
-        body {
-            margin: 1em calc(10vw );
-            color: var(--fgcol);
-            font-family: sans-serif;
-            font-size: var(--fgsize);
-            background: var(--bgcol);
-            
-        }
-        footer {
-            &, a, a:visited {
-                color: var(--bgcol);
-            }
-            background: var(--fgcol);
-            border-radius: 15px 15px 0px 0px;
-            padding: 1em;
-            text-align: right;
-        }
-        blockquote {
-            /* bring fgcol into scope to mut it */
-            border-left: var(--fgcol) solid 5px;
-           
-            font-style: normal;
-            margin-left: 0px;
-            padding: 1em;
-            padding-left: 3em;
-            border-radius: 10px;
-            box-shadow: 3px 3px 10px var(--fgcol);
-            background: oklch(from var(--fgcol) l c h / .1);
-            
-            
-        }
-        
-        
-        cite {
-            font-style: italic;
-            display: block;
-            &::before {
-                content: "- ";
-            }
-        }
     </style>
 </head>
 
 <body>
     <header>
         <h1>Elysia Fae</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Index</a></li>
+                <li><a href="notes.html">Notes</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <article>
@@ -73,6 +28,10 @@
             This One is a doll. It ( yes, <em>it</em> ) likes cold places, toys, and christmas !
             It has just entered kindergarten, which has been an exciting, albeit scary, experience.
         </p>
+        <figure>
+            <img src="images/header.webp" alt="photo of tram passing through pedestrian plaza.">
+            <figcaption>photo i took in oslo</figcaption>
+        </figure>
         <!-- should it put a [sic] in for itself? -->
         <blockquote>
             theres a kind of beauty standing on the edge of the roof of a 20 storey building at night. there's so much life in your field of view. much of its resting, preparing for another day. its beautiful how it manages to all work together. i love it. 
@@ -80,6 +39,14 @@
                 <a href="https://ely.pub.moe/blog/2025-08-04-love/">elysia fae</a>
             </cite>
         </blockquote>
+        <p>
+            some of my hobbies include:
+        </p>
+        <ul>
+            <li>helping other students in this class</li>
+            <li>not being homeless</li>
+            <li>making books that i never publish</li>
+        </ul>
         <p>
             This One is a bit of an art slut and loves being creative 
             and attempting fun projects. It's currently doing a lot with 

@@ -1,0 +1,93 @@
+:root {
+            --alignment-right: 40px;
+            color-scheme: light dark;
+            --fgsize: clamp( 14px, 2.5vw, 25px );
+            --fgcol: rgb(112, 22, 22);
+            --bgcol: rgb(252, 242, 195);
+            @media (prefers-color-scheme: dark) {
+                --fgcol: rgb(252, 242, 195);
+                --bgcol: rgb(112, 22, 22);
+            }
+        }
+        body {
+            margin: 1em calc(10vw );
+            color: var(--fgcol);
+            font-family: sans-serif;
+            font-size: var(--fgsize);
+            background: var(--bgcol);
+            
+        }
+        header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-right: var(--alignment-right);
+            h1 {
+                padding: 0px;
+                margin: 0px;
+            }
+        }
+        nav {
+            ul {
+                display: flex;
+                padding: 0px;
+                margin: 0px;
+                list-style-type: none;
+                flex-wrap: wrap;
+                gap: 1em;
+                font-size: .7rem;
+                a, a:visited {
+                    color: color-mix(in oklch, var(--bgcol) 100%, var(--fgcol) 50%);
+                }
+            }
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        figure {
+            img {
+                box-shadow: -2px 2px 5px black;
+            }
+        }
+        figcaption {
+            font-size: .7rem;
+            text-align: right;
+        }
+        footer {
+            &, a, a:visited {
+                color: var(--bgcol);
+            }
+            background: var(--fgcol);
+            border-radius: 15px 15px 0px 0px;
+            padding: 1em;
+            padding-right: var(--alignment-right);
+            text-align: right;
+        }
+        blockquote {
+            /* bring fgcol into scope to mut it */
+            border-left: var(--fgcol) solid 5px;
+           
+            font-style: normal;
+            margin-left: 0px;
+            padding: 1em;
+            padding-left: 3em;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px var(--fgcol);
+            background: oklch(from var(--fgcol) l c h / .1);
+            
+            
+        }
+        
+        
+        cite {
+            font-style: italic;
+            display: block;
+            &::before {
+                content: "- ";
+            }
+        }
+        p {
+            margin-right: var(--alignment-right);
+        }
+        
