@@ -12,8 +12,8 @@ for ( var i = 0; i < headerText.length; i++) {
     }
     var span = document.createElement("span");
     span.innerHTML = char;
-    span.style = `--index:${i}`;
+    span.setAttribute("data-index-number", i);
     headerOne.appendChild(span, headerOne);
-    headerOne.style = `--total_letters:${headerOne.children.length}`
+    headerOne.setAttribute("data-count", headerOne.children.length)
     
 }

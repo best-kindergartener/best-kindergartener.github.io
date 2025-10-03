@@ -37,11 +37,17 @@ header:has(.site-title) {
     align-items: baseline;
     margin-right: var(--alignment-right);
     .site-title {
-        
         padding: 0px;
         margin: 0px;
+        --total_letters: attr(data-count type(<number>), 10);
         span {
-            /* total_letters set inline by javascript on site-title */
+            /* variables designed in javascript and set 
+            on the elements with attributes. total_letters 
+            inherits from the parent. */
+            /* firefox doesnt support parsing data types 
+            with the attribute css function yet */
+            
+            --index: attr(data-index-number type(<number>), 5);
             --hue: calc((360 / var(--total_letters)) * var(--index));
             color: hsl(var(--hue) 100% 75%);
         }
@@ -80,16 +86,31 @@ img {
     max-height: 100%;
 }
 figure {
+    margin: 0px auto;
     img {
         box-shadow: -2px 2px 5px black;
         border-radius: 10px;
+    }
+    #my-image {
+        box-shadow: 0px 0px 2px 1px black;
     }
 }
 figcaption {
     font-size: .7em;
     text-align: right;
 }
+
+
+
 /* body  */
+
+
+main {
+    margin-right: var(--alignment-right);
+    & > * {
+        margin-right: 0px;
+    }
+}
 dl {
     display: grid;
     gap: 2em;
@@ -101,7 +122,7 @@ dl {
 blockquote {
     /* bring fgcol into scope to mut it */
     border-left: var(--fgcol) solid 5px;
-   
+    margin-right: unset;
     font-style: normal;
     margin-left: 0px;
     padding: 1em;
@@ -122,5 +143,20 @@ cite {
     }
 }
 p {
-    margin-right: var(--alignment-right);
+    text-align: justify;
 }
+ul:is(.hobbies) {
+    list-style-type: square;
+    
+}
+ul:is(.hobbies) li:nth-child(odd) {
+        background: linear-gradient(
+            90deg,
+            color-mix(in oklch, var(--bgcol) 100%, rgba(131, 58, 180, 1) 30%) 0%,
+            rgba(252, 176, 69, 0) 100%
+        );
+        box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.267);
+        border-radius: 10px;
+        padding-left: var(--alignment-right);
+        
+    }
