@@ -48,6 +48,7 @@
         figure {
             img {
                 box-shadow: -2px 2px 5px black;
+                border-radius: 10px;
             }
         }
         figcaption {
@@ -63,6 +64,17 @@
             padding: 1em;
             padding-right: var(--alignment-right);
             text-align: right;
+        }
+
+
+        /* body  */
+        dl {
+            display: grid;
+            gap: 2em;
+            dt {
+                font-weight: 500;
+                text-decoration: underline 2px solid;
+            }
         }
         blockquote {
             /* bring fgcol into scope to mut it */
