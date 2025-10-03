@@ -39,6 +39,9 @@ header:has(.site-title) {
     .site-title {
         padding: 0px;
         margin: 0px;
+        /* colour only takes affect if support for 
+        attr(type) is unavailable; a fallback */
+        color: color-mix(in oklch, var(--fgcol) 20%, rgb(244, 122, 255) 100%);
         --total_letters: attr(data-count type(<number>), 10);
         span {
             /* variables designed in javascript and set 
@@ -73,10 +76,17 @@ nav {
         margin: 0px;
         list-style-type: none;
         flex-wrap: wrap;
-        gap: 1em;
         font-size: .7em;
         a, a:visited {
+            transition: background .3s ease, color .3s ease;
+            text-decoration: none;
+            padding: .5em;
+            border-radius: 10px;
             color: color-mix(in oklch, var(--bgcol) 100%, var(--fgcol) 50%);
+            &:focus, &:hover {
+                background:  color-mix(in oklch, var(--bgcol) 100%, var(--fgcol) 50%);
+                color: inherit;
+            }
         }
        
     }
