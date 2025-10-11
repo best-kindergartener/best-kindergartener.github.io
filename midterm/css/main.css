@@ -1,0 +1,220 @@
+:root {
+    /* ----- colours ----- */
+    /* palette */
+    --lightpink:  #FAE8EB;
+    --pink:       #F6CACA;
+    --fadedpink:  #F6CACA;
+    --lightpurple:#CD9FCC;
+    --darkpurple: #0A014F;
+
+    /* themes... */
+    /* light */
+    --bgcol:       var(--lightpurple);
+    --bgmaincol:   var(--lightpink);
+    --bgaccentcol: var(--pink);
+    --bgfaded:     var(--fadedpink);
+    --fgcol:       var(--darkpurple);
+    --contrastmixcol: black;
+    color-scheme:  light;
+
+    /* dark */
+    @media (prefers-color-scheme: dark) {
+        /* darknavbg exists to have different 
+           bg colour on dark mode only, and 
+           it will default to bg col on light */
+        --darknavbg:  var(--lightpurple);
+        --bgcol:      color-mix(in oklch,
+            var(--lightpurple) 80%,
+            black 100%
+        );
+        --bgmaincol:  var(--darkpurple);
+        --fgcol:      var(--lightpink);
+        --contrastmixcol: white;
+        color-scheme: dark;
+    }
+
+
+    /* ----- fonts ----- */
+    --font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --font-size-rec: 18px;
+    --font-size-big: calc(20px + 1vw);
+    --font-size-small: calc(12px);
+    /* clamp for responsive;
+       big size uses view width 
+       for very large screens */
+    --font-size-clamp: clamp(
+        var(--font-size-small),
+        var(--font-size-rec),
+        var(--font-size-big)
+    );
+}
+
+/* ----- globals ----- */
+
+body {
+    /* basic styling */
+    background:  var(--bgcol);
+    font-family: var(--font-family);
+    font-size:   var(--font-size-clamp);
+    color:       var(--fgcol);
+    line-height: 1.5;
+
+    /* layout */
+    display: grid;
+    grid-template-columns: .15fr .70fr .15fr;
+    margin: 0px auto;
+}
+.wrapper {
+    /* put it in the centre */
+    grid-column: 2;
+}
+img {
+    /* makes responsive */
+    max-width:  100%;
+    max-height: 100%;
+}
+a, a:visited {
+    color: color-mix(in oklch, var(--lightpurple) 100%, var(--contrastmixcol) 30%);
+}
+ul {
+    /* defaulting */
+    padding: 0px;
+}
+
+
+/* ----- header ----- */
+/* :has() to raise specificity for grid column declaration
+   inheritance in the event i make the banner larger */
+header:has(.banner) {
+   
+    position: relative;
+    
+    .banner {
+        /* allows to expand and do front roll heading */
+        
+        contain: layout;
+
+        @media ( orientation: portrait) {
+           max-height: 40svh;
+        
+       }
+
+        /* layering */
+        position:   relative;
+        z-index:    -1;
+        filter:     blur(.3px);
+        
+    }
+    h1 {
+        /* layering */
+        position:   absolute;
+        
+        
+        /* positioing */
+        inset:      0;
+        text-align: center;
+        align-self: center;
+
+        /* text colour always light pink 
+           since image is static regardless 
+           of theme */
+        color:      var(--lightpink);
+        text-decoration:  underline solid .3em;
+    }
+    nav {
+        /* general styling */
+        background: var(--fgcol);
+        border-top: solid var(--fgcol);
+        font-size:  0.7em;
+        
+        
+        /* layering */
+        position:   relative;
+        z-index:    2;
+
+        /* different styling on dark */
+        @media ( prefers-color-scheme: dark) {
+            /* eliminate gap between it and image */
+            margin-top: -.5em;
+            border:      solid var(--fgcol);
+        }
+
+        ul {
+            /* defaulting */
+            list-style-type: none;
+            margin:          0px;
+
+
+            /* desktop flex */
+            display:         flex;
+            flex-wrap:       wrap;
+
+            /* lets sections have the nav's bg
+               appear as dividers */
+            gap:             .3em;
+            li {
+                /* general styling */
+                background:  var(--darknavbg, var(--fadedpink));
+
+                /* responsive */
+                flex-grow:   1;
+                text-align:  center;
+                
+                
+            }
+            li:hover a, li:hover a:visited {
+                /* make links bigger when the li is hovered */
+                font-size: 2em;
+                margin:    1em 0px;
+                /* raise contrast */
+                color:     color-mix(
+                    in oklch,
+                    var(--bgcol) 30%,
+                    rgb(253, 245, 166) 100%,
+                );
+                
+            }
+        }
+        & a, & a:visited {
+            color:         color-mix(
+                in oklch,
+                var(--bgcol) 100%,
+                --contrastmixcol 50%
+            );
+            display:      block;
+            transition:   font-size .3s ease, 
+                        color .3s ease,
+                        margin .3s ease;
+        }
+
+    }
+}
+
+/* ----- main contents ----- */
+main {
+    /* basic styling */
+    background: var(--bgmaincol);
+
+    /* layout */
+    padding: 1em;
+    
+    h2 {
+
+    }
+    article {
+        .floated {
+            float: left;
+            @media ( orientation: landscape ) {
+                /* make partial width on desktop */
+                max-width: 30%;
+            }
+        }
+    }
+    aside {
+        font-size: .8em;
+        ul {
+            /* aligns with other text */
+            list-style-position: inside;
+        }
+    }
+}
