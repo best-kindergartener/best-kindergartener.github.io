@@ -27,7 +27,8 @@
             var(--lightpurple) 80%,
             black 100%
         );
-        --bgmaincol:  var(--darkpurple);
+        /* --bgmaincol:  var(--darkpurple); */
+        --bgmaincol: #060225;
         --fgcol:      var(--lightpink);
         --contrastmixcol: white;
         color-scheme: dark;
@@ -35,7 +36,8 @@
 
 
     /* ----- fonts ----- */
-    --font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+    --font-family: 'Biscuit Kids', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     --font-size-rec: 18px;
     --font-size-big: calc(20px + 1vw);
     --font-size-small: calc(12px);
@@ -50,6 +52,10 @@
 }
 
 /* ----- globals ----- */
+@font-face {
+        font-family: 'Biscuit Kids';
+        src: url('../fonts/biscuitkidsDEMO.otf');
+    }
 
 body {
     /* basic styling */
